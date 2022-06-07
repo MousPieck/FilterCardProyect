@@ -1,0 +1,20 @@
+.tittle,
+.lista,
+.select {
+	cursor: pointer;
+}
+
+.tittle,
+.lista {
+	&:hover {
+		color: var(--lista);
+	}
+}
+.tittle {
+	margin-bottom: 0;
+	margin-top: 0.5em;
+}
+
+.select {
+	color: var(--lista);
+}

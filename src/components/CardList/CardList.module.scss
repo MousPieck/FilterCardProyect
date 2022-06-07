@@ -1,0 +1,25 @@
+.container {
+	width: 100%;
+	.cardList {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		row-gap: 5vh;
+	}
+	.paginator {
+		display: flex;
+		align-self: flex-end;
+	}
+
+	@media (max-width: 769px) {
+		.cardList {
+			justify-content: center;
+		}
+	}
+}
+@media (max-width: 769px) {
+	.cardList {
+		justify-content: center;
+	}
+}

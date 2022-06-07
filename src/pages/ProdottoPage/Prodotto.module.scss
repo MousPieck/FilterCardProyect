@@ -1,0 +1,14 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10vh 7em 0 7em;
+	.prodotto {
+		position: relative;
+		height: 30em;
+	}
+	.correlati {
+		display: flex;
+		justify-content: space-between;
+	}
+}

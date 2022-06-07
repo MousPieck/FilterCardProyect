@@ -1,0 +1,15 @@
+.menu {
+	display: flex;
+	flex-direction: column;
+
+	padding-left: 5em;
+
+	min-height: 100%;
+	width: 40vw;
+}
+
+@media (max-width: 769px) {
+	.menu {
+		display: none;
+	}
+}
