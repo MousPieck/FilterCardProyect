@@ -10,7 +10,6 @@ export const Filter: React.FC<IMenu> = ({ propieta, voce }) => {
 	const { iu } = useSelector((state: RootState) => state);
 	const dispatch = useDispatch();
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-
 	const dispatchType = (
 		type: TTypeMenu,
 		sottoCategorie: TPrezzo | TCategory,
@@ -35,13 +34,17 @@ export const Filter: React.FC<IMenu> = ({ propieta, voce }) => {
 	const check = (name: string): JSX.Element => {
 		return (
 			<>
-				<div className="field-checkbox animate__animated animate__fadeIn">
+				<div
+					className={`field-checkbox animate__animated animate__fadeIn`}
+				>
 					<Checkbox
 						inputId="binary"
 						checked={iu.checked}
 						onChange={(e) => dispatch(saleRx(e.checked))}
 					/>
-					<label htmlFor="binary">{name}</label>
+					<label htmlFor="binary" className={styles.sconto}>
+						{name}
+					</label>
 				</div>
 			</>
 		);
@@ -68,14 +71,17 @@ export const Filter: React.FC<IMenu> = ({ propieta, voce }) => {
 
 	return (
 		<div className={styles.container}>
-			<h1 onClick={() => setIsOpen(!isOpen)} className={styles.tittle}>
-				{propieta}
-			</h1>
+			<div className={styles.tittle} onClick={() => setIsOpen(!isOpen)}>
+				<h1>{propieta}</h1>
+				<i className={`pi pi-chevron-up ${isOpen && styles.down}`}></i>
+			</div>
 			<hr />
 			{voce.type === "checkbox"
 				? isOpen && check(voce.label as string)
 				: isOpen && (
-						<ul className="animate__animated animate__fadeIn">
+						<ul
+							className={`animate__animated animate__fadeIn ${styles.listaContainer}`}
+						>
 							{voce.categorie?.map((sottoCategorie) => {
 								return categorie(sottoCategorie);
 							})}
